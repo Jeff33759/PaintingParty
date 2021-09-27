@@ -158,6 +158,8 @@ public class PersonContentController {
 		String oFileName= oneMem.getProfile_pic();
 		String ofilePath=odirPath+"\\"+oFileName;
 		
+		System.out.println("oFileName="+oFileName);
+		
 		//日期轉換成字串
 		Date date = new Date();
 	    DateFormat dateformat = new SimpleDateFormat("yyyyMMddHHmmss");
@@ -178,9 +180,11 @@ public class PersonContentController {
 			personContentService.updateOneProfilePic(memOneId, updateFileName);
 			personContentService.updateOneProfilePicPath(memOneId, dirPath);
 			
-			//刪除資料夾舊檔		
-			File oimageHeadShot = new File(ofilePath);
-			oimageHeadShot.delete();
+			//刪除資料夾舊檔
+			if(oFileName.equals("default.jpg")!=true) {
+				File oimageHeadShot = new File(ofilePath);
+				oimageHeadShot.delete();
+			}
 	    }
 		
         //自我簡介變動	

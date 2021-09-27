@@ -162,46 +162,46 @@
                       <div class="u-container-style u-grey-15 u-group u-radius-5 u-shape-round u-group-2">
                         <div class="u-container-layout u-container-layout-5">
                           <h6 class="u-text u-text-default u-text-1">個人頁面網址</h6>
-                          <a href="http://localhost:8080/PaintPartyMvcProject/memberpage/${id}" class="u-border-2 u-border-palette-1-base u-btn u-button-style u-none u-text-palette-1-base u-btn-8"> 瀏覽 個​人頁面</a>
+                          <a href="<%= request.getContextPath() %>/memberpage/${id}" class="u-border-2 u-border-palette-1-base u-btn u-button-style u-none u-text-palette-1-base u-btn-8"> 瀏覽 個​人頁面</a>
                         </div>
                       </div>
                       <div class="u-clearfix u-custom-html u-custom-html-1" style="margin-left:50px">
                         <div class="container col-12">
                           <div class="mb-3">
                               <h5 style="font-weight:bold">身分設定</h5>
-                              <form action="personcontentpainterchange">
+                              <form action="<%= request.getContextPath() %>/backend/personcontentpainterchange">
                               <h6 style="display: inline-block;" id="painter0">${memberStatusName }</h6>
                               	<button type="submit" class="btn btn-primary" id="painter1" onclick="changePainter()">成為畫師</button>
                               </form>
                           </div>
-							<form action="personcontentchange" method="post" enctype="multipart/form-data">
+							<form action="<%= request.getContextPath() %>/backend/personcontentchange" method="post" enctype="multipart/form-data">
 							 <h5 style="font-weight:bold" id="painter2">畫家自定義標籤</h5>								
                              <div class="left sele-set" id="painter3">
                                 <label for="type">創作類別</label>
                                 <select method="post" id="Select1" name="tag1" class="form-select" aria-label="Default select example" style="margin-left: 5px;width: 215px;" >
-                                    <option selected value=${sTag1}>${tagContent1}</option>
-                                    <option value="1">插畫</option>
-                                    <option value="2">貼圖</option>
-                                    <option value="3">頭貼</option>
-                                    <option value="4">小漫畫</option>
-                                    <option value="5">UI</option>
-                                    <option value="6">人物設計</option>
-                                    <option value="7">風景</option>
+                                    <option id="type01" selected value=${sTag1}>${tagContent1}</option>
+                                    <option id="type1" value="1">插畫</option>
+                                    <option id="type2" value="2">小貼圖</option>
+                                    <option id="type3" value="3" >頭貼</option>
+                                    <option id="type4" value="4" >小漫畫</option>
+                                    <option id="type5" value="5" >UI</option>
+                                    <option id="type6" value="6" >人物設計</option>
+                                    <option id="type7" value="7" >風景</option>
                                 </select>
                               </div>
                               <div class="right sele-set mb-3 mt-3" id="painter4">
                                   <label for="type">創作風格</label>
                                   <select method="post" id="Select2" name="tag2" class="form-select" aria-label="Default select example" style="margin-left: 5px;width: 215px;">
-                                      <option selected value=${sTag2}>${tagContent2}</option>
-                                      <option value="8">日系</option>
-                                      <option value="9">歐美風</option>
-                                      <option value="10">武俠風</option>
-                                      <option value="11">Q版</option>
-                                      <option value="12">寫實風</option>
-                                      <option value="13">3D</option>
-                                      <option value="14">水墨風</option>
-                                      <option value="15">水彩風</option>
-                                      <option value="16">像素風</option>
+                                      <option id="type02" selected value=${sTag2}>${tagContent2}</option>
+                                      <option id="type8" value="8">日系</option>
+                                      <option id="type9" value="9">歐美風</option>
+                                      <option id="type10" value="10">武俠風</option>
+                                      <option id="type11" value="11">Q版</option>
+                                      <option id="type12" value="12">寫實風</option>
+                                      <option id="type13" value="13">3D</option>
+                                      <option id="type14" value="14">水墨風</option>
+                                      <option id="type15" value="15">水彩風</option>
+                                      <option id="type16" value="16">像素風</option>
                                   </select>
                               </div>	
                               <div class="mb-3">
@@ -272,7 +272,21 @@
         	  painter3.style.display="none";
         	  painter4.style.display="none";
           }
-	  
+                    
+          var i;
+          for(i=1;i<8;i++){  	          	          	  
+        	  if(document.getElementById("type"+i).value==document.getElementById("type01").value){
+        		  document.getElementById("type"+i).setAttribute("hidden", true);
+        	  }
+          }
+          
+          var j;
+          for(j=8;j<17;j++){  	          	          	  
+        	  if(document.getElementById("type"+j).value==document.getElementById("type02").value){
+        		  document.getElementById("type"+j).setAttribute("hidden", true);
+        	  }
+          }
+          	  
       </script>
   </body>
 </html>
