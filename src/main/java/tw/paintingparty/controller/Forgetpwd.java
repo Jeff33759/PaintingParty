@@ -78,7 +78,7 @@ public class Forgetpwd {
 		
 		JavaMail javaMail = new JavaMail(); //new一個javamail
 
-		String subject = "測試郵件926"; // 標題
+		String subject = "匯聚-密碼重設"; // 標題
 		String resetPassHref="http://localhost:1337/PaintPartyMvcProject/resetpassword?sid="+digitalSignature+"&memberId="+mem.getMember_id();
 		String txt = "點擊連結,重設密碼<br/><a href="+resetPassHref +" target='_BLANK'>點我重新設置密碼</a>" +
                 "<br/>請於30分鐘內重設密碼'"+"<br/>若連結無效請手動點擊下當網址<br/>"+

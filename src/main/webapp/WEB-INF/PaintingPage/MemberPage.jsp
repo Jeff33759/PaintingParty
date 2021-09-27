@@ -84,10 +84,10 @@
     <div class="container-fluid">
         <header class="u-clearfix u-header u-header" id="sec-4c0b">
             <div class="u-clearfix u-sheet u-sheet-1">
-<a href="<%= request.getContextPath() %>/" class="u-image u-logo u-image-1" title="網站首頁" data-image-width="570"
-                data-image-height="410">
-                <img src="resources/images/LOGO-TEST-22.png" class="u-logo-image u-logo-image-1">
-            </a>
+					<a href="<%= request.getContextPath() %>/" class="u-image u-logo u-image-1" title="網站首頁" data-image-width="570"
+                		data-image-height="410">
+                		<img src="../resources/images/LOGO-TEST-22.png" class="u-logo-image u-logo-image-1">
+            		</a>
                 <nav class="u-menu u-menu-dropdown u-offcanvas u-menu-1">
                     <div class="menu-collapse" style="font-size: 1.125rem; letter-spacing: 0px;">
                         <a class="u-button-style u-custom-left-right-menu-spacing u-custom-padding-bottom u-custom-text-hover-color u-custom-top-bottom-menu-spacing u-nav-link u-text-active-palette-1-base u-text-hover-palette-2-base"
@@ -148,7 +148,7 @@
                 <div class="u-container-style u-group u-white u-group-2">
                     <div class="u-container-layout u-container-layout-2">
                     	<div>
-	                        <a href="<%= request.getContextPath() %>/CaseFormApplyPage/<%=request.getAttribute("member_id")%>"
+	                        <a href="<%= request.getContextPath() %>/backend/CaseFormApplyPage"
 	                            class="u-border-1 u-border-palette-3-light-1 u-btn u-btn-round u-button-style u-hover-palette-3-light-2 u-none u-radius-10 u-text-hover-white u-text-palette-3-light-1 u-btn-3" name="issue_case" style="display:none">發布案件</a>
 	                        <a href="/PaintPartyMvcProject/backend"
 	                            class="u-border-1 u-border-palette-3-light-1 u-btn u-btn-round u-button-style u-hover-palette-3-light-2 u-none u-radius-10 u-text-hover-white u-text-palette-3-light-1 u-btn-4 fix-margin" name="account_manager" style="display:none">帳號管理</a>
@@ -937,6 +937,7 @@
                             </div>
                             <div class="font-weight-bold my-1">
                                 <span class="badge badge-light mr-2">委託者</span>
+                                <span class="badge badge-light mr-2">\${evaObj.evaluation_star}</span>
                             </div>
                             <div class="">
                                 <div class="font-weight-bold my-1">

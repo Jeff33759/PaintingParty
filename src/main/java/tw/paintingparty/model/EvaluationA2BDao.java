@@ -34,12 +34,26 @@ public class EvaluationA2BDao {
 	}
 	
 	public String evaluationA2BContent(int case_id) {
+		Object singleResult=null;
 		Session session = sessionfactory.getCurrentSession();
 		String hql = "select evaluation_content from EvaluationA2B where case_id=:case_id";
 		Query createQuery = session.createQuery(hql).setParameter("case_id", case_id);
-//		String evaContent = createQuery.getSingleResult().toString();
-		Object singleResult = createQuery.getSingleResult();
+		singleResult = createQuery.getSingleResult();
 		String evaContent = singleResult.toString();
 		return evaContent;
+		
+//這一段修改 getSingleResult() 找無資料
+//		try {
+//			Session session = sessionfactory.getCurrentSession();
+//			String hql = "select evaluation_content from EvaluationA2B where case_id=:case_id";
+//			Query createQuery = session.createQuery(hql).setParameter("case_id", case_id);
+//			singleResult = createQuery.getSingleResult();
+//			String evaContent = singleResult.toString();
+//			return evaContent;
+//			
+//		}catch (Exception e) {
+//			return "";
+//		}
+
 	}
 }

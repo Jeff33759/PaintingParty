@@ -125,6 +125,8 @@ public class MemberPageController_Wang {
 		m.addAttribute("profile_content", profile_content);
 		
 		
+		
+		
 		//讀取委託中案件
 		List<Cases> cases = caseService.selectCaseIdByMemberId(memberId);
 		
@@ -200,11 +202,14 @@ public class MemberPageController_Wang {
 			String memNameS = evaBymember_id_r.get(i).getMemberbean_s().getMember_name();
 			Integer memIdS = evaBymember_id_r.get(i).getMemberbean_s().getMember_id();
 			String eva_content = evaBymember_id_r.get(i).getEvaluation_content();
+			String evaluation_star = evaBymember_id_r.get(i).getEvaluation_star(); //讀取好評壞評
+			
 			
 			JSONObject json=new JSONObject();
 			json.put("memNameS", memNameS);
 			json.put("eva_content", eva_content);
 			json.put("memIdS", memIdS);
+			json.put("evaluation_star", evaluation_star);
 			
 			evaArr.add(json);
 			evaJson.put(Integer.toString(evaIdx) , evaArr);
@@ -229,6 +234,9 @@ public class MemberPageController_Wang {
 		}
 		m.addAttribute("totalPageForEva", totalPageForEva);
 		
+		
+		
+		
 		//--------------------------------
 		//讀取委託他人
 		List<EvaluationB2A> evab2aBymember_id_s = evaluationB2AService.selectEvaluationB2ABymember_id_sService(memberId);
@@ -241,7 +249,14 @@ public class MemberPageController_Wang {
 			Integer memIdR = evab2aBymember_id_s.get(i).getMemberbean_r().getMember_id();
 			Integer case_id = evab2aBymember_id_s.get(i).getCasesbean().getCase_id();
 			String evaB2AContent = evab2aBymember_id_s.get(i).getEvaluation_content();
-			//A2B的評價內容
+			//A2B的評價內容，狀況1: b2a先給評價,但 a2b未給評價會報錯
+			
+//			String evaA2BContent=null;
+//			if(evaluationA2BService.evaluationA2BContentService(case_id)!=null) {
+//				evaA2BContent = evaluationA2BService.evaluationA2BContentService(case_id);
+//			}else {
+//				evaA2BContent="尚未給評價";
+//			}
 			String evaA2BContent = evaluationA2BService.evaluationA2BContentService(case_id);
 			//new 一個json放四個data
 			JSONObject json=new JSONObject();
