@@ -240,7 +240,7 @@
 						</div>
 						<div class="form-row d-flex">
 							<div class="form-group col-md-12">
-								<label for="inputLowBudget">酬勞預算</label> <input type="text"
+								<label for="inputLowBudget">期望稿酬</label> <input type="text"
 									class="form-control" id="inputBudget" placeholder="(必填)"
 									name="expectedBudget" required="required">
 							</div>
@@ -257,16 +257,7 @@
 		</div>
 	</section>
 
-	<script type="text/javascript">
-		function dosuccess(){
-			let n1=document.getElementById("spendDay").value;
-			let n2=document.getElementById("inputBudget").value;
-			if(n1!=''&& n2!=''){
-				alert("應徵案件成功");
-			}
-		}
-			
-		</script>
+
 		
 
 	<footer class="u-align-center u-clearfix u-footer u-grey-70 u-footer"
