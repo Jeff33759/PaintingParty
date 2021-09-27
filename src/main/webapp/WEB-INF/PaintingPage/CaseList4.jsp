@@ -164,17 +164,7 @@
 				$('#row2').empty();
 				$('#page').empty();
 				
-				var minP = $('#minP').val();
-				var maxP = $('#maxP').val();
-				var str = '';
 				
-				if(maxP!=str && maxP < minP && maxP !=0){
-					alert('最高稿酬不能低於最低稿酬！');
-				}
-				
-				if(maxP!=str && maxP == minP && maxP !=0){
-					alert('最高稿酬不能等於最低稿酬！');
-				}
 				
 				
 				if(data.length==0){
