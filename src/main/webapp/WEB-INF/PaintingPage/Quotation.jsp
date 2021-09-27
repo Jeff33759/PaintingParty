@@ -67,7 +67,11 @@
 			$('#inputBudget').attr("value",'2000');
 		})
 		$('#send').click(function(){
-			alert("申請案件訂單已成功送出！");
+			let n1=document.getElementById("spendDay").value;
+			let n2=document.getElementById("inputBudget").value;
+			if(n1!=''&& n2!=''){
+				alert("應徵案件成功");
+			}
 		})
 		
 		check(s);
@@ -222,30 +226,29 @@
 				<h1
 					class="u-custom-font u-font-oswald u-text u-text-black u-text-default u-text-1">案件報價單</h1>
 				<button 
-					class="u-border-2 u-border-grey-75 u-btn u-btn-round u-button-style u-hover-grey-40 u-radius-12 u-white u-btn-1" id="demoClick">DEMO</button>
-			</h2>
+		class="u-border-2 u-border-grey-75 u-btn u-btn-round u-button-style u-hover-grey-40 u-radius-12 u-white u-btn-1" id="demoClick">DEMO</button></h2>
 
 			<div
 				class="u-align-left  u-radius-5 u-shape-round u-white u-group-2 " style="border: 1px solid #ced6e0">
 				<div class=" u-container-layout-1 "
 					style="font-family: Arial, Helvetica, sans-serif;">
 					<form action="<%=request.getContextPath()%>/addapply.controller"
-						method="post">
+						method="post" >
 						<div class="form-group">
 							<label>花費天數</label> <input type="input" class="form-control"
-								placeholder="請輸入預計花費天數" name="spendDay" id="spendDay">
+								placeholder="請輸入預計花費天數" name="spendDay" id="spendDay" required="required">
 						</div>
 						<div class="form-row d-flex">
 							<div class="form-group col-md-12">
 								<label for="inputLowBudget">酬勞預算</label> <input type="text"
 									class="form-control" id="inputBudget" placeholder="(必填)"
-									name="expectedBudget">
+									name="expectedBudget" required="required">
 							</div>
 
 						</div>
 
 
-						<button type="submit" class="btn btn-warning btn-lg btn-block" id="send">送出</button>
+						<button type="submit" class="btn btn-warning btn-lg btn-block" id="send" onclick="dosuccess()">送出</button>
 
 
 					</form>
@@ -254,6 +257,17 @@
 		</div>
 	</section>
 
+	<script type="text/javascript">
+		function dosuccess(){
+			let n1=document.getElementById("spendDay").value;
+			let n2=document.getElementById("inputBudget").value;
+			if(n1!=''&& n2!=''){
+				alert("應徵案件成功");
+			}
+		}
+			
+		</script>
+		
 
 	<footer class="u-align-center u-clearfix u-footer u-grey-70 u-footer"
 		id="sec-c7c8">

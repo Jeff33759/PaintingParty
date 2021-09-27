@@ -230,7 +230,7 @@ public class CaseListPageDAO {
 		String sort = bean.getSort();
 		
 		String ifItnew = " order by c.upload_date desc,c.case_id desc";
-		
+		String ifItOld = " order by c.upload_date asc,c.case_id asc";
 		
 		String[] ary = tagAry.split(",");
 
@@ -262,7 +262,7 @@ public class CaseListPageDAO {
 					List<Cases> list = query.getResultList();
 					return list;
 				}else {
-					hql2 = hql2 + " and c.price_min >= "+ minPrice + " and c.price_max <= "+maxPrice ;
+					hql2 = hql2 + " and c.price_min >= "+ minPrice + " and c.price_max <= "+maxPrice + ifItOld;
 					Query<Cases> query = session.createQuery(hql2, Cases.class);
 					
 //					List<Cases> list = query.setMaxResults(8).getResultList();
@@ -278,7 +278,7 @@ public class CaseListPageDAO {
 					List<Cases> list = query.getResultList();
 					return list;
 				}else {
-					hql1 = hql1 + " and c.price_min >= "+ minPrice + " and c.price_max <= "+maxPrice;
+					hql1 = hql1 + " and c.price_min >= "+ minPrice + " and c.price_max <= "+maxPrice + ifItOld;
 					Query<Cases> query = session.createQuery(hql1, Cases.class);
 					
 //					List<Cases> list = query.setMaxResults(8).getResultList();
@@ -294,7 +294,7 @@ public class CaseListPageDAO {
 					List<Cases> list = query.getResultList();
 					return list;
 				}else {
-					hql3 = hql3 + " and c.price_min >= "+ minPrice + " and c.price_max <= "+maxPrice;
+					hql3 = hql3 + " and c.price_min >= "+ minPrice + " and c.price_max <= "+maxPrice + ifItOld;
 					Query<Cases> query = session.createQuery(hql3, Cases.class);
 					
 //					List<Cases> list = query.setMaxResults(8).getResultList();
@@ -310,7 +310,7 @@ public class CaseListPageDAO {
 					List<Cases> list = query.getResultList();
 					return list;
 				}else {
-					hql = hql + " and c.price_min >= "+ minPrice + " and c.price_max <= "+maxPrice;
+					hql = hql + " and c.price_min >= "+ minPrice + " and c.price_max <= "+maxPrice + ifItOld;
 					Query<Cases> query = session.createQuery(hql, Cases.class);
 					
 //					List<Cases> list = query.setMaxResults(8).getResultList();
@@ -331,7 +331,7 @@ public class CaseListPageDAO {
 					List<Cases> list = query.getResultList();
 					return list;
 				}else {
-					hql2 = hql2 + " and c.price_min >= "+ minPrice ;
+					hql2 = hql2 + " and c.price_min >= "+ minPrice + ifItOld;
 					Query<Cases> query = session.createQuery(hql2, Cases.class);
 					
 //					List<Cases> list = query.setMaxResults(8).getResultList();
@@ -348,7 +348,7 @@ public class CaseListPageDAO {
 					List<Cases> list = query.getResultList();
 					return list;
 				}else {
-					hql1 = hql1 + " and c.price_min >= "+ minPrice ;
+					hql1 = hql1 + " and c.price_min >= "+ minPrice + ifItOld;
 					Query<Cases> query = session.createQuery(hql1, Cases.class);
 					
 //					List<Cases> list = query.setMaxResults(8).getResultList();
@@ -364,7 +364,7 @@ public class CaseListPageDAO {
 					List<Cases> list = query.getResultList();
 					return list;
 				}else {
-					hql3 = hql3 + " and c.price_min >= "+ minPrice  ;
+					hql3 = hql3 + " and c.price_min >= "+ minPrice  + ifItOld;
 					Query<Cases> query = session.createQuery(hql3, Cases.class);
 					
 //					List<Cases> list = query.setMaxResults(8).getResultList();
@@ -380,7 +380,7 @@ public class CaseListPageDAO {
 					List<Cases> list = query.getResultList();
 					return list;
 				}else {
-					hql = hql + " and c.price_min >= "+ minPrice ;
+					hql = hql + " and c.price_min >= "+ minPrice + ifItOld;
 					Query<Cases> query = session.createQuery(hql, Cases.class);
 					
 //					List<Cases> list = query.setMaxResults(8).getResultList();
@@ -401,7 +401,7 @@ public class CaseListPageDAO {
 					List<Cases> list = query.getResultList();
 					return list;
 				}else {
-					hql2 = hql2 + " and c.price_max <= " + maxPrice ;
+					hql2 = hql2 + " and c.price_max <= " + maxPrice + ifItOld;
 					Query<Cases> query = session.createQuery(hql2, Cases.class);
 //					List<Cases> list = query.setMaxResults(8).getResultList();
 					List<Cases> list = query.getResultList();
@@ -416,7 +416,7 @@ public class CaseListPageDAO {
 					List<Cases> list = query.getResultList();
 					return list;
 				}else {
-					hql1 = hql1 + " and c.price_max <= " + maxPrice ;
+					hql1 = hql1 + " and c.price_max <= " + maxPrice + ifItOld;
 					Query<Cases> query = session.createQuery(hql1, Cases.class);
 //					List<Cases> list = query.setMaxResults(8).getResultList();
 					List<Cases> list = query.getResultList();
@@ -430,7 +430,7 @@ public class CaseListPageDAO {
 					List<Cases> list = query.getResultList();
 					return list;
 				}else {
-					hql3 = hql3 + " and c.price_max <= " + maxPrice ;
+					hql3 = hql3 + " and c.price_max <= " + maxPrice + ifItOld;
 					Query<Cases> query = session.createQuery(hql3, Cases.class);
 //					List<Cases> list = query.setMaxResults(8).getResultList();
 					List<Cases> list = query.getResultList();
@@ -444,7 +444,7 @@ public class CaseListPageDAO {
 					List<Cases> list = query.getResultList();
 					return list;
 				}else {
-					hql = hql + "and c.price_max <= " + maxPrice ;
+					hql = hql + "and c.price_max <= " + maxPrice + ifItOld;
 					Query<Cases> query = session.createQuery(hql, Cases.class);
 //					List<Cases> list = query.setMaxResults(8).getResultList();
 					List<Cases> list = query.getResultList();
@@ -465,6 +465,7 @@ public class CaseListPageDAO {
 					List<Cases> list = query.getResultList();
 					return list;
 				}else {
+					hql2 = hql2 + ifItOld;
 					Query<Cases> query = session.createQuery(hql2, Cases.class);
 					
 //					List<Cases> list = query.setMaxResults(8).getResultList();
@@ -482,6 +483,7 @@ public class CaseListPageDAO {
 					List<Cases> list = query.getResultList();
 					return list;
 				}else {
+					hql1 = hql1 + ifItOld;
 					Query<Cases> query = session.createQuery(hql1, Cases.class);
 					
 //					List<Cases> list = query.setMaxResults(8).getResultList();
@@ -498,6 +500,7 @@ public class CaseListPageDAO {
 					List<Cases> list = query.getResultList();
 					return list;
 				}else {
+					hql3 = hql3 + ifItOld;
 					Query<Cases> query = session.createQuery(hql3, Cases.class);
 					
 //					List<Cases> list = query.setMaxResults(8).getResultList();
@@ -513,6 +516,7 @@ public class CaseListPageDAO {
 					List<Cases> list = query.getResultList();
 					return list;
 				}else {
+					hql = hql + ifItOld;
 					Query<Cases> query = session.createQuery(hql, Cases.class);
 //					List<Cases> list = query.setMaxResults(8).getResultList();
 					List<Cases> list = query.getResultList();
