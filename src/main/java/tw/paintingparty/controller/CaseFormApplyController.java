@@ -119,7 +119,7 @@ private MemberService mService;
 		break;
 		}
 		
-
+		
 		
 		cf1.setCase_tag(categorySelect + "," + styleSelect);
 		

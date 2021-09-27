@@ -127,9 +127,9 @@
 
 	<header class="u-clearfix u-header u-header" id="sec-4c0b">
 		<div class="u-clearfix u-sheet u-sheet-1">
-			             <a href="<%= request.getContextPath() %>/" class="u-image u-logo u-image-1" title="網站首頁" data-image-width="570"
+			    <a href="<%= request.getContextPath() %>/" class="u-image u-logo u-image-1" title="網站首頁" data-image-width="570"
                 data-image-height="410">
-                <img src="resources/images/LOGO-TEST-22.png" class="u-logo-image u-logo-image-1">
+                <img src="../resources/images/LOGO-TEST-22.png" class="u-logo-image u-logo-image-1">
             </a>
 			<nav class="u-menu u-menu-dropdown u-offcanvas u-menu-1">
 				<div class="menu-collapse"
@@ -226,22 +226,22 @@
 					class="u-container-layout u-container-layout-1 font-weight-bold"
 					style="font-family: Arial, Helvetica, sans-serif;">
 					<form action="<%=request.getContextPath()%>/addform.controller"
-						method="post" enctype="multipart/form-data" name="caseform" onsubmit="return dosubmit()">
+						method="post" enctype="multipart/form-data" name="caseform" >
 						<div class="form-group">
 							<label for="inputCaseName" >案件名稱</label> <input type="text"
 								class="form-control" id="inputCaseName" placeholder="(必填)"
-								name="inputCaseName" required="required"> <p></p> <span id="s1" style="color:red"></span>
+								name="inputCaseName" required="required"> 
 						</div>
 						<div class="form-row d-flex">
 							<div class="form-group col-md-6">
 								<label for="inputLowBudget">最低預算</label> <input type="text"
 									class="form-control" id="inputLowBudget" placeholder="(必填)"
-									name="inputLowBudget" required="required"> <p></p> <span id="s2" style="color:red"></span>
+									name="inputLowBudget" required="required"> 
 							</div>
 							<div class="form-group col-md-6">
 								<label for="inputHighBudget">最高預算</label> <input type="text"
 									class="form-control" id="inputHighBudget" placeholder="(必填)"
-									name="inputHighBudget" required="required"> <p></p> <span id="s3" style="color:red"></span>
+									name="inputHighBudget" required="required"> 
 							</div>
 						</div>
    					 	
@@ -283,7 +283,7 @@
 							<label for="CommissionExplain">案件說明(必填)</label>
 							<textarea class="form-control" id="CommissionExplain" rows="4"
 								placeholder="請詳細描述需求" name="commissionExplain" required="required"></textarea> 
-								<p></p> <span id="s4" style="color:red"></span>
+								
 						</div>	
 						<div class="col form-group" style="width: 200px;">
 							<!--   <label class="btn btn-info ">
@@ -301,12 +301,12 @@
              			 
 							<div>
 								<img class="preview"
-									style="max-width: auto; max-height: 300px;"><p></p> <span id="s5" style="color:red"></span>
+									style="max-width: auto; max-height: 300px;">
 								<div class="size"></div>
 							</div>
 						</div>
 						<button type="submit" id="submit"
-							class="btn btn-warning btn-lg btn-block" name="succ" onclick="javaScript:alert('刊登案件成功')">送出</button>
+							class="btn btn-warning btn-lg btn-block" name="succ" onclick="dosuccess()">送出</button>
 
 
 						<!-- 上傳照片 -->
@@ -322,6 +322,22 @@
 }
 </style>
 	
+		<script type="text/javascript">
+		function dosuccess(){
+			let n1=document.getElementById("inputCaseName").value;
+			let n2=document.getElementById("inputLowBudget").value;
+			//var num2=document.caseform.inputLowBudget.value;
+			let n3=document.getElementById("inputHighBudget").value;
+			//var num3=document.caseform.inputHighBudget.value;
+			let n4=document.getElementById("CommissionExplain").value;
+			if(n1!=''&& n2!=''&& n3!=''&& n4!='' ){
+	
+				}alert("刊登案件成功");
+			}
+		}
+			
+		</script>
+		
 
 	<footer class="u-align-center u-clearfix u-footer u-grey-70 u-footer"
 		id="sec-c7c8">
