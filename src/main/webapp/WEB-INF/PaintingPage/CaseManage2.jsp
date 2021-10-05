@@ -475,19 +475,21 @@
                                         						
                                         						
                                         						
-                                        						$('#link-tab-7446').click(function(){ <!--我應徵的>全部案件 -->
-
+                                        						$('#link-tab-7446').click(function(){ <!--我發布的>全部案件 -->
+                                        						
                                         							$('#link-tab-7446').attr('aria-selected','true');
-                                        							$("#PostShow2").empty();
+                                        							$("#PostShow2").empty(); //當按下 我發布的>全部案件 把PostShow2裡的子元素給幹掉
+                                        							$(".mypostedorders_dialog").remove(); //當按下 我發布的>全部案件 把成立訂單的dialog包含子元素給幹掉
                                         							$("#PostShow1").load('<%=request.getContextPath() %>/backend/mypostedallcases');
                                             						
                                             					
                                                                 });
                                         						
-                                        						$('#link-tab-e6d5').click(function(){ <!-- 我應徵的>成立訂單 -->
+                                        						$('#link-tab-e6d5').click(function(){ <!-- 我發布的>成立訂單 -->
                                         						
                                         							$('#link-tab-e6d5').attr('aria-selected','true');
                                         							$("#PostShow1").empty();
+                                        							$(".mypostedallcases_dialog").remove(); //當按下 我發布的>成立訂單 把全部案件的dialog包含子元素給幹掉
                                         							$("#PostShow2").load('<%=request.getContextPath() %>/backend/mypostedorders');
                                             		
 
@@ -495,7 +497,7 @@
                                         						
                                         						
                                         	
-											                   <!-- 關鍵字:1111JQ -->
+											                   
 											                </script>
                                         <!--  ----------------------------- ---->
                                         
@@ -582,6 +584,8 @@
                             </div>
 
                             <script>
+                            
+                            
                                 if( $('#link-tab-dea3').attr('aria-selected') == 'true' ){
                                     $("#PostShow3").load('<%=request.getContextPath() %>/backend/myappliedallcases');
                                 }
@@ -593,7 +597,8 @@
                                 $('#link-tab-dea3').click(function(){ <!--我應徵的>全部案件 -->
 
                                     $('#link-tab-dea3').attr('aria-selected','true');
-                                    $("#PostShow4").empty();
+                                    $("#PostShow4").empty();//當按下 我應徵的>全部案件 把PostShow4裡的子元素給幹掉
+                                    $(".myappliedorders_dialog").remove(); //當按下 我應徵的>全部案件 把成立訂單的dialog包含子元素給幹掉
                                     $("#PostShow3").load('<%=request.getContextPath() %>/backend/myappliedallcases');
                                     
                                 
@@ -602,7 +607,8 @@
                                 $('#link-tab-a26d').click(function(){ <!-- 我應徵的>成立訂單 -->
                                 
                                     $('#link-tab-a26d').attr('aria-selected','true');
-                                    $("#PostShow3").empty();
+                                    $("#PostShow3").empty();//當按下 我應徵的>成立訂單 把PostShow3裡的子元素給幹掉
+                                    //$(".dialog").remove(); //當按下 我應徵的>全部案件 把全部案件的dialog包含子元素給幹掉(雖然目前沒有做)
                                     $("#PostShow4").load('<%=request.getContextPath() %>/backend/myappliedorders');
                     
 
@@ -669,7 +675,7 @@
     <script>
     	
     var my_status = "<%= session.getAttribute("session_member_status") %>";
-    console.log(my_status);
+    //console.log(my_status);
     if(my_status === "一般會員"){
     	$("#link-tab-14b7").attr("style","display:none");
     	  	

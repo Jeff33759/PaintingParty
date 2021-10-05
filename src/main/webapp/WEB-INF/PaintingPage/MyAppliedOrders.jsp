@@ -698,10 +698,10 @@
     //待改進:在第五張圖片單擊後，假設在第三張圖片雙擊解除，那時候呈現的會有五個超賽，而不是三個，必須把滑鼠移出去觸發out重置。
     
     
-            let imageevab = document.querySelectorAll ("#idimgb"); //取得所有ID為IDIMG的所有元素，放進NodeList裡面，成為元素集
-            let msgb = document.getElementById("messageb");
-            let msgb2 = document.getElementById("messageb2");
-            let evtb = document.getElementById("evaluationb");
+            var imageevab = document.querySelectorAll ("#idimgb"); //取得所有ID為IDIMG的所有元素，放進NodeList裡面，成為元素集
+            var msgb = document.getElementById("messageb");
+            var msgb2 = document.getElementById("messageb2");
+            var evtb = document.getElementById("evaluationb");
             //let subb = document.getElementById("submit");
 
             
@@ -982,7 +982,7 @@
  
   <!-------以下評價表單--------->
  
- <div id="dialog-evaluationb2a" title="給評價">
+ <div id="dialog-evaluationb2a" title="給評價" class="myappliedorders_dialog" >
   
   <div id="formblock" style="width:450px;">
 
@@ -1032,7 +1032,7 @@
  
    <!-------上傳檔案--------->
 
-<div id="dialog-productupload" title="上傳成品">
+<div id="dialog-productupload" title="上傳成品" class="myappliedorders_dialog">
 
 	<div class="centerblock" style="width: 450px;">
 
@@ -1088,7 +1088,7 @@
 
 <!-------檔案內容--------->
 
-<div id="dialog-filecontentb" title="檔案內容">
+<div id="dialog-filecontentb" title="檔案內容" class="myappliedorders_dialog">
 
 <div style="width: 500px;" id="">
   <div class="centerblock">

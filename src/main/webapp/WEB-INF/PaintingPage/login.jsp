@@ -293,25 +293,16 @@
         	data:user,
         	dataType:"json",
        		success:function(data,status,xhr){
-        		if(data.success){
-	       		 	var prevLink = document.referrer;
-	       		 	if($.trim(prevLink)==''){  //來自空白頁
-	       		 	    location.href = 'Index';  
-	       		 	}else{
-	       		 		
-	       		 		if (prevLink.indexOf('PaintPartyMvcProject') == -1 || pageNotRedirect(prevLink)) {
-	       		 			//來自其它站點 or 來自注冊頁面
-	       		 			location.href = 'Index';
-	       		 		} else {
-	      		 	    	location.href = prevLink;  //來自站內
-	       		 	    }
-	       		 	}
+        		if(data.success){ //驗證輸入的帳密是否正確，若正確，做以下
+        			
+        			location.href = 'login.successmessage';  
+
 //        				window.location.href = "./Index";  //登入成功跳轉的頁面,未定
-        		}else{
+        		}else{ //若輸入的帳密錯誤，做以下
         			$("#username-error").show()
         		}
         	},
-        	error:function(shit) {
+        	error:function() {
         		//console.log(shit.res !ponseJSON.msg)
         		$("#username-error").show()
         	}

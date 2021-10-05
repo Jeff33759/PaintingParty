@@ -4,14 +4,14 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>尚未登入</title>
 </head>
 <body>
-<h1>您尚未登入，三秒後自動跳轉</h1>
+<h1>您尚未登入，兩秒後自動跳轉</h1>
 
  <script type="text/javascript">  
  
-     setTimeout("redirect()",3000);
+     setTimeout("redirect()",2000);
      function redirect(){
          window.location.href = "<%=request.getContextPath() %>/login" ;
      }

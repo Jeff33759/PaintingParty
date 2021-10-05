@@ -844,11 +844,12 @@ function ajaxreq (){
     //待改進:在第五張圖片單擊後，假設在第三張圖片雙擊解除，那時候呈現的會有五個超賽，而不是三個，必須把滑鼠移出去觸發out重置。
     
     
-            let imageeva = document.querySelectorAll ("#idimg"); //取得所有ID為IDIMG的所有元素，放進NodeList裡面，成為元素集
-            let msg = document.getElementById("message");
-            let msg2 = document.getElementById("message2");
-            let evt = document.getElementById("evaluation");
-            let sub = document.getElementById("#dialog-evaluationa2b submit");
+            var imageeva = document.querySelectorAll ("#idimg"); //取得所有ID為IDIMG的所有元素，放進NodeList裡面，成為元素集
+            var msg = document.getElementById("message");
+            var msg2 = document.getElementById("message2");
+            var evt = document.getElementById("evaluation");
+            //console.log(imageeva);
+            //let sub = document.getElementById("#dialog-evaluationa2b submit");
 
             
 
@@ -1032,7 +1033,7 @@ $("#evaluation_orderid").attr("style","display:none");
 
  <!-------以下評價表單--------->
  
-<div id="dialog-evaluationa2b" title="給評價">
+<div id="dialog-evaluationa2b" title="給評價" class="mypostedorders_dialog">
   
   <div id="formblock" style="width:450px;">
 
@@ -1083,7 +1084,7 @@ $("#evaluation_orderid").attr("style","display:none");
 
 
  <!-------以下匯款資訊--------->
- <div id="dialog-payINFO" title="接案方的匯款資訊">
+ <div id="dialog-payINFO" title="接案方的匯款資訊" class="mypostedorders_dialog">
  
 	 <div id="payINFO" style="width: 450px;" >
 	
@@ -1122,7 +1123,7 @@ $("#evaluation_orderid").attr("style","display:none");
  
  <!-- 以下檔案內容 -->
  
- <div id="dialog-filecontenta" title="檔案內容">
+ <div id="dialog-filecontenta" title="檔案內容" class="mypostedorders_dialog">
 
 <div style="width: 500px;" id="">
   <div class="centerblock">

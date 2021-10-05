@@ -532,7 +532,7 @@ $(function() {
 
 
  <!----------------以下管理案件 ----------->
- <div id="dialog-casemanagepage" title="管理案件">
+ <div id="dialog-casemanagepage" title="管理案件" class="mypostedallcases_dialog">
  
    <div id="casemanagepage" style="width:650px;padding: 20px;">
 
