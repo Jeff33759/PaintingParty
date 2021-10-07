@@ -52,8 +52,6 @@ import javax.websocket.OnOpen;
 import javax.websocket.Session;
 import javax.websocket.server.ServerEndpoint;
 
-import org.springframework.stereotype.Repository;
-import org.springframework.transaction.annotation.Transactional;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 
@@ -65,14 +63,14 @@ import tw.teamUtil.Util01;
 @ServerEndpoint("/endpoint")
 public class WebSocketServer {    
     	
-		//定義一個全域性變數集合sockets,使用者存放每個登入使用者的通訊管道，再線使用者有幾個，就有幾個
-	    private  static  Set<WebSocketServer>  sockets=new HashSet<WebSocketServer>();
+		//定義一個全域性變數集合sockets,使用者存放每個登入使用者的通訊管道，再線使用者有幾個，就有幾個。
+	    //群體廣播用，和底下的Map<Integer, Session>  map用途不同，無法藉由KEY取得特定對象的會話物件(私聊)，但可以用FOR EACH取得目前所有線上的會員的會話物件，做群體廣播。
+	    //private  static  Set<WebSocketServer>  sockets=new HashSet<WebSocketServer>();
+	
 	    //定義一個全域性變數Session,用於存放登入使用者的使用者名稱
 	    private  Session  session;
-	    //定義一個全域性變數map，key為使用者名稱，該使用者對應的session為value，放在線使用者的會話物件用，每個MEMBER_ID若進來，就會有一個會話物件
-	    private  static  Map<Integer, Session>  map=new HashMap<Integer, Session>();
-	    
-	    private HttpSession httpsession = null;
+	    //定義一個全域性變數map，key為使用者ID，該使用者對應的session為value，放在線使用者的會話物件用，每個MEMBER_ID若進來，就會有一個會話物件
+	    private  static  Map<Integer, Session>  map=new HashMap<Integer, Session>(); //單聊用，可以藉由ID(KEY)取得對方的會話物件
 	    
 	    //得到連接進來的ID
 	    private Integer my_userid ; 
@@ -96,14 +94,14 @@ public class WebSocketServer {
     	System.out.println("近來");
     	
     	this.session = session;
-    	sockets.add(this); //把自己的通訊管道加入列表
+//    	sockets.add(this); //把自己的通訊管道加入列表
     	
     	System.out.println("近來2");
     	
     	
     	
     	//取得當前登入聊天室的使用者ID
-    	String queryString = session.getQueryString();
+    	String queryString = session.getQueryString(); //我們從WS的SESSION裡面獲取我自己以及對方的ID，沒從HTTPSESSION裡面獲取，所以沒用到ServletAwareConfig
     	System.out.println("近來3");
     	
 //    	this.my_userid = Integer.parseInt( queryString.substring(queryString.indexOf("=")+1) );
@@ -147,7 +145,7 @@ public class WebSocketServer {
         	     
         		 String myname = util01.selectMyNameInWebSocket(my_userid);
         		 String systemnotic = String.format("【系統通知】會員 %s 上線中，剛剛開啟了與您的連接，似乎有話想說!", myname);
-        		 System.out.println(systemnotic);
+        		 //System.out.println(systemnotic);
         		 
         		 ms2cb.setSend_message("【系統通知】對方正在線上!");
         		 ms2cb2.setSend_message(systemnotic);    		 
@@ -174,22 +172,22 @@ public class WebSocketServer {
     	
     	
     	
-    	System.out.println("開始共長: " + sockets.size());
+    	System.out.println("共長: " + map.size());
     	
     }
     
     @OnClose //當客戶端離開時，做，關掉視窗也是執行這個，可以考慮把寫入資料庫坐在這裡
     public void onClose(Session session)  throws IOException {
-    	System.out.println("代刪除的通訊管道會員ID: " + sockets);
+//    	System.out.println("代刪除的通訊管道會員ID: " + sockets);
     	
     	//移除退出登入使用者的會話物件
     	map.remove(this.my_userid);
     	
     	//移除退出登入使用者的通訊管道
-    	sockets.remove(this);
+//    	sockets.remove(this);
     	
     	System.out.println("有人close了");
-    	System.out.println("共長: " + sockets.size());
+    	System.out.println("共長: " + map.size());
 //        broadCast(String.format("【#會員ID: %s】%s", this.my_userid , "Connection 關閉了..."));        
     }
     
