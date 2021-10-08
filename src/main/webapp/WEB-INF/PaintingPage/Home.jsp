@@ -251,7 +251,7 @@
                     </div>
                 </div>
                 <div class="col-12 col-md-6 pt-5">
-                    <img src="../resources/images/pic2.png" style="height: 400px; width: 550px;">
+                    <img src="resources/images/pic2.png" style="height: 400px; width: 550px;">
                 </div>
             </div>
             <div class="row d-flex align-items-center pt-2">
