@@ -50,6 +50,35 @@ public class EvaluationB2A implements Serializable{
 	@JoinColumn(name ="member_id_r") 
 	private Member memberbean_r; //接案者資訊
 
+	
+	
+	
+	
+	
+	public Integer getCase_id() {
+		return case_id;
+	}
+
+	public void setCase_id(Integer case_id) {
+		this.case_id = case_id;
+	}
+
+	public Integer getMember_id_s() {
+		return member_id_s;
+	}
+
+	public void setMember_id_s(Integer member_id_s) {
+		this.member_id_s = member_id_s;
+	}
+
+	public Integer getMember_id_r() {
+		return member_id_r;
+	}
+
+	public void setMember_id_r(Integer member_id_r) {
+		this.member_id_r = member_id_r;
+	}
+
 	public Integer getEvaluation_id() {
 		return evaluation_id;
 	}

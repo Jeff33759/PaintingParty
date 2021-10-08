@@ -1,7 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
  
- 
 <!DOCTYPE html>
 <html style="font-size: 16px;" lang="zh-Hant">
 <head>
@@ -10,7 +9,7 @@
     <meta name="keywords" content="">
     <meta name="description" content="">
     <meta name="page_type" content="np-template-header-footer-from-plugin">
-    <title>CaseManage2</title>
+    <title>CaseManage</title>
    
     <script class="u-script" type="text/javascript" src="../resources/js/jquery.js" defer=""></script>
     <script class="u-script" type="text/javascript" src="../resources/js/nicepage.js" defer=""></script>
@@ -110,11 +109,16 @@
             </div>
             <div class="u-container-style u-group u-white u-group-2">
                 <div class="u-container-layout u-container-layout-2">
-                    <a href="139992805"
-                        class="u-border-1 u-border-palette-3-light-1 u-btn u-btn-round u-button-style u-hover-palette-3-light-2 u-none u-radius-10 u-text-hover-white u-text-palette-3-light-1 u-btn-3">發布案件</a>
-                    <a href="139992805"
-                        class="u-border-1 u-border-palette-3-light-1 u-btn u-btn-round u-button-style u-hover-palette-3-light-2 u-none u-radius-10 u-text-hover-white u-text-palette-3-light-1 u-btn-4">帳號管理</a>
-                </div>
+					<div>
+						<a href="<%= request.getContextPath() %>/backend/CaseFormApplyPage"
+							class="u-border-1 u-border-palette-3-light-1 u-btn u-btn-round u-button-style u-hover-palette-3-light-2 u-none u-radius-10 u-text-hover-white u-text-palette-3-light-1 u-btn-3"
+							name="issue_case" style="display: none">發布案件</a> <a
+							href="<%= request.getContextPath() %>/backend/accountmanager"
+							class="u-border-1 u-border-palette-3-light-1 u-btn u-btn-round u-button-style u-hover-palette-3-light-2 u-none u-radius-10 u-text-hover-white u-text-palette-3-light-1 u-btn-4 fix-margin"
+							name="account_manager" style="display: none">帳號管理</a> <span
+							class="u-border-palette-3-light-1 u-btn u-btn-round u-button-style u-hover-palette-3-light-2 u-none u-radius-10 u-text-hover-white u-text-palette-3-light-1 u-btn-4"
+							name="member_name" style="display: none"><%=request.getAttribute("member_name")%></span>
+					</div>
             </div>
         </div>
     </header>
@@ -188,8 +192,8 @@
                                             d="m30 0h320c14.402344.0390625 26.761719 10.261719 29.5 24.398438l-189.5 105.601562-189.5-105.601562c2.738281-14.136719 15.097656-24.3593755 29.5-24.398438zm320 246.601562h-320c-16.546875-.050781-29.953125-13.453124-30-30v-169.601562l185.101562 103.199219c1.5.824219 3.183594 1.273437 4.898438 1.300781 1.722656.019531 3.414062-.429688 4.898438-1.300781l185.101562-103.199219v169.601562c-.011719 16.5625-13.4375 29.984376-30 30zm0 0">
                                         </path>
                                     </svg></span>
-                                <a href="https://nicepage.com/c/shapes-website-templates"
-                                    class="u-active-grey-15 u-border-none u-btn u-button-style u-grey-5 u-hover-grey-15 u-text-active-palette-1-light-1 u-text-hover-palette-1-light-1 u-btn-7">登出</a><span
+                                <a 
+                                    class="u-active-grey-15 u-border-none u-btn u-button-style u-grey-5 u-hover-grey-15 u-text-active-palette-1-light-1 u-text-hover-palette-1-light-1 u-btn-7" name="logout" onclick="logout()">登出</a><span
                                     class="u-icon u-icon-circle u-icon-4"
                                     data-href="https://nicepage.com/c/video-website-templates"><svg class="u-svg-link"
                                         preserveAspectRatio="xMidYMin slice" viewBox="0 0 511 512" style="">
@@ -1392,6 +1396,28 @@
             </div>
         </nav>
     </footer>
+    
+        <script type="text/javascript">
+    //登入狀態與登出狀態功能列表, backend的不需要此功能
+    //透過AllFilter 傳過來的session
+//     <h1>${sessionScope.login}</h1>
+    console.log(${sessionScope.login})
+    if(${sessionScope.login}==1){ //代表有登入狀態
+    	$("[name=issue_case]").show()
+    	$("[name=account_manager]").show()
+    }else{
+    	$("[name=header_login]").show()
+    	$("[name=header_register]").show()
+    	
+    }
+    //登出
+    function logout(){
+    	
+    	window.location.href = '/PaintPartyMvcProject/logout'
+    }
+    
+    </script>
+    
 </body>
 
 </html>

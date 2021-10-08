@@ -39,6 +39,19 @@ public class Example implements Serializable{
 	@JoinColumn(name ="case_id") 
 	private Cases casesbean;
 
+	
+	
+	
+
+	public Integer getCase_id() {
+		return case_id;
+	}
+
+
+	public void setCase_id(Integer case_id) {
+		this.case_id = case_id;
+	}
+
 
 	public Integer getExample_id() {
 		return example_id;

@@ -1,0 +1,9 @@
+diff a/src/main/java/tw/paintingparty/controller/LoginController_forWang.java b/src/main/java/tw/paintingparty/controller/LoginController_forWang.java	(rejected hunks)
+@@ -76,6 +76,7 @@
+ 					request.getSession().setAttribute("username", request.getParameter("username"));
+ 					request.getSession().setAttribute("password", request.getParameter("password"));
+ 					request.getSession().setAttribute("session_member_id", member_id);
++<<<<<<< HEAD
+ 					request.getSession().setAttribute("session_member_status", member_status);
+ =======
+ //					request.getSession().setAttribute("session_member_status", member_status);

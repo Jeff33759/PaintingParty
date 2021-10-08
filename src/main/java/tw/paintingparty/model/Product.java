@@ -44,6 +44,16 @@ public class Product implements Serializable{
 	
 	
 	
+	
+	
+	public Integer getOrder_id() {
+		return order_id;
+	}
+
+	public void setOrder_id(Integer order_id) {
+		this.order_id = order_id;
+	}
+
 	public Orders getOrdersbean() {
 		return ordersbean;
 	}

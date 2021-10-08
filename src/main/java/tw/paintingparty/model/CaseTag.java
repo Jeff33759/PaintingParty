@@ -42,6 +42,24 @@ public class CaseTag implements Serializable{
 	@ManyToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name ="case_id") 
 	private Cases casesbean; 
+	
+	
+
+	public Integer getTag_id() {
+		return tag_id;
+	}
+
+	public void setTag_id(Integer tag_id) {
+		this.tag_id = tag_id;
+	}
+
+	public Integer getCase_id() {
+		return case_id;
+	}
+
+	public void setCase_id(Integer case_id) {
+		this.case_id = case_id;
+	}
 
 	public Integer getCase_tad_id() {
 		return case_tad_id;

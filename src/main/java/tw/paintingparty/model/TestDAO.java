@@ -17,7 +17,7 @@ public class TestDAO {
     public SessionFactory sessionfactory;
 	
 	public Member test() {
-		Session session = sessionfactory.openSession();
+		Session session = sessionfactory.getCurrentSession();
 		
 		String hql = "from Member where member_id=1 ";
 		Query<Member> query = session.createQuery(hql, Member.class);

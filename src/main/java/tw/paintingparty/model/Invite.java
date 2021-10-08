@@ -40,6 +40,26 @@ public class Invite implements Serializable{
 	private Member invitedmemberbean; //被邀請的會員資訊
 
 	
+	
+	
+	
+	
+	public Integer getCase_id() {
+		return case_id;
+	}
+
+	public void setCase_id(Integer case_id) {
+		this.case_id = case_id;
+	}
+
+	public Integer getMember_id() {
+		return member_id;
+	}
+
+	public void setMember_id(Integer member_id) {
+		this.member_id = member_id;
+	}
+
 	public Integer getInvite_id() {
 		return invite_id;
 	}

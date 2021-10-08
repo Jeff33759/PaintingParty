@@ -45,12 +45,16 @@ public class Member implements Serializable {
 	
 	private String profile_content;
 	
-	@JsonFormat(pattern = "yyyy-MM-dd")
+	@JsonFormat(pattern = "yyyy-MM-dd", timezone = "GMT+8")
 	private Date register_date;
 	
 	private String tag_personal;
 	
 	private String pixiv;
+	
+	private String validatacode;
+
+	private Date outdate;
 
 	
 	
@@ -172,6 +176,22 @@ public class Member implements Serializable {
 
 	public void setPixiv(String pixiv) {
 		this.pixiv = pixiv;
+	}
+
+	public String getValidatacode() {
+		return validatacode;
+	}
+
+	public void setValidatacode(String validatacode) {
+		this.validatacode = validatacode;
+	}
+
+	public Date getOutdate() {
+		return outdate;
+	}
+
+	public void setOutdate(Date outdate) {
+		this.outdate = outdate;
 	}
 	
 	

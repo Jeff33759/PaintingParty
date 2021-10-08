@@ -35,8 +35,8 @@ public class WebAppMvcConfig implements WebMvcConfigurer {
 	
 	@Override //設定重新導向
 	public void addViewControllers(ViewControllerRegistry registry) {	
-		registry.addRedirectViewController("/", "首頁CONTROLLER"); //網站進入點
-		registry.addRedirectViewController("/backend", "帳號設置頁面CONTROLLER"); //後台進入點
+//		registry.addRedirectViewController("/", "/Index"); //網站進入點
+		registry.addRedirectViewController("/backend", "/backend/accountmanager"); //後台進入點
 		
 		
 	}

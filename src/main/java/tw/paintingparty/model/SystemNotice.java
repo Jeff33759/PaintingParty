@@ -14,8 +14,8 @@ import org.springframework.stereotype.Component;
 import com.fasterxml.jackson.annotation.JsonFormat;
 
 @Entity
-@Table(name = "system_notic")
-@Component("system_notic") 
+@Table(name = "system_notice")
+@Component("system_notice") 
 public class SystemNotice implements Serializable{
 
 	private static final long serialVersionUID = 1L;
@@ -28,10 +28,11 @@ public class SystemNotice implements Serializable{
 	
 	private String notice_content;
 	
-	@JsonFormat(pattern = "yyyy-MM-dd")
+	@JsonFormat(pattern = "yyyy-MM-dd", timezone = "GMT+8")
 	private Date notice_date;
 
-	
+	private String notice_sort;
+
 	
 	public Integer getSystem_notice_id() {
 		return system_notice_id;
@@ -64,6 +65,17 @@ public class SystemNotice implements Serializable{
 	public void setNotice_date(Date notice_date) {
 		this.notice_date = notice_date;
 	}
+
+	public String getNotice_sort() {
+		return notice_sort;
+	}
+
+	public void setNotice_sort(String notice_sort) {
+		this.notice_sort = notice_sort;
+	}
+	
+	
+	
 	
 	
 	

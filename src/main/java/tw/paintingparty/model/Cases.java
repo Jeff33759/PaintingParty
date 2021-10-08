@@ -35,7 +35,7 @@ public class Cases implements Serializable{
 	
 	private String case_title;
 	
-	@JsonFormat(pattern = "yyyy-MM-dd")
+	@JsonFormat(pattern = "yyyy-MM-dd", timezone = "GMT+8")
 	private Date upload_date;
 	
 	private Integer price_min;
@@ -53,24 +53,19 @@ public class Cases implements Serializable{
 	@ManyToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name ="member_id") //發布人ID
 	private Member postedmemberbean;
-	
 
-//	@OneToMany(fetch = FetchType.LAZY,mappedBy = "ocasesbean") 
-//	Set<Orders> allordersbean = new LinkedHashSet<Orders>(); //所有此案件所成立的訂單
+	public Integer getMember_id() {
+		return member_id;
+	}
 	
-
-//
-//	public Set<Orders> getAllordersbean() {
-//		return allordersbean;
-//	}
-//
-//	public void setAllordersbean(Set<Orders> allordersbean) {
-//		this.allordersbean = allordersbean;
-//	}
+	public void setMember_id(Integer member_id) {
+		this.member_id = member_id;
+	}
 
 	public Member getPostedmemberbean() {
 		return postedmemberbean;
 	}
+
 
 	public void setPostedmemberbean(Member postedmemberbean) {
 		this.postedmemberbean = postedmemberbean;

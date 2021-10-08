@@ -14,10 +14,11 @@ public class LoginController {
 	
 	@RequestMapping(path = "/login.message", method = RequestMethod.GET)
 	public String loginmessage() {
-		return "loginmessage";
+		return "loginerrormessage";
 	}
 	
-	
-	
-
+	@RequestMapping(path = "/login.successmessage", method = RequestMethod.GET)
+	public String loginsuccessmessage() {
+		return "loginsuccessmessage";
+	}
 }
