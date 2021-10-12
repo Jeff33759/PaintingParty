@@ -427,7 +427,7 @@
     	   
     	   $.ajax({
                url: `<%= request.getContextPath() %>/backend/myappliedorders2/\${myappliedorder_sort}/\${myappliedorder_condition}/\${myapplied_order_nowpage }`,   // url位置
-               type: 'post',  // post/get
+               type: 'get',  // post/get
                error: function (xhr) { $("#MyAppliedOrdersPage").html('請求失敗，請重新整理'); },      // 錯誤後執行的函數
                success: function (data) { 
               	 $("#MyAppliedOrdersPage").html(""); //demo+重置
@@ -871,7 +871,7 @@
 					url : `<%= request.getContextPath() %>/backend/productuploader`,
 					data : productformData,
 					cache : false, // 不需要cache
-					processData : false, // jQuery預設會把data轉為query String, 所以要停用
+					processData : false, 
 					contentType : false, // jQuery預設contentType為'application/x-www-form-urlencoded; charset=UTF-8', 且不用自己設定為'multipart/form-data'
 					//dataType: 'text',
 					success : function() {

@@ -245,7 +245,7 @@ $("#myapplied_page .nextpagebtn").click(function(){
         	 
              $.ajax({ //代做
                  url: `<%= request.getContextPath() %>/backend/myappliedallcases2/\${myappliedcase_sort}/\${myappliedcase_nowpage}`,                        // url位置
-                 type: 'post', 
+                 type: 'get', 
                  error: function (xhr) { $("#MyAppliedAllCasesPage").html('請求失敗，請重新整理'); },      // 錯誤後執行的函數
                  success: function (data) { 
                 	 $("#MyAppliedAllCasesPage").html("");//demo+重置

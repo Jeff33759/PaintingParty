@@ -357,7 +357,7 @@ $(function() {
                	
                	$.ajax({
                        url: `<%= request.getContextPath() %>/backend/mypostedallcases2/\${myposted_sort}/\${myposted_condition}/\${myposted_nowpage}`,  // url位置
-                       type: 'post',                  
+                       type: 'get',                  
                        error: function (xhr) { $("#MyPostedAllCasesPage").html('請求失敗，請重新整理'); },      // 錯誤後執行的函數
                        success: function (data) {
                       	$("#MyPostedAllCasesPage").html(""); //DEMO用 改
@@ -616,7 +616,7 @@ $(function() {
    	  	  
    	  	$.ajax({
 				url: `<%= request.getContextPath() %>/backend/casebackstage/\${casemanage_caseid}`,
-				type: 'post',
+				type: 'get',
 				dataType: 'json',
 				success: function(data2) { //data2取值，記得從x+1開始取，跳過第0筆資料
 					//alert("連線成功!!");
@@ -720,7 +720,7 @@ $(function() {
 	           				
 						$.ajax({
 	     					url: `<%= request.getContextPath() %>/backend/hire/\${ hirecase_id }/\${ hirebmemid }/\${ hireexpected }`,
-	     					type: 'post',
+	     					type: 'get',
 	     					success: function(data) {
 	     						alert("成功錄用!");
 	     						whoapplyinfo();
@@ -779,7 +779,7 @@ $(function() {
 	  
 	  $.ajax({
 			url: `<%= request.getContextPath() %>/backend/offthiscase/\${ offcase_id }`,
-			type: 'post',
+			type: 'get',
 			success: function() {
 				alert("案件已成功下架!");
 				$( "#dialog-casemanagepage" ).dialog( "close" );

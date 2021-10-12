@@ -432,7 +432,7 @@ function ajaxreq (){
 	
 	$.ajax({
         url: `<%= request.getContextPath() %>/backend/mypostedorders2/\${mypostorders_sort}/\${mypostorders_condition}/\${mypostorders_nowpage}`,  // url位置
-        type: 'post',                   // post/get
+        type: 'get',                   // post/get
         error: function (xhr) { $("#MyPostedOrdersPage").html('請求失敗，請重新整理'); },      // 錯誤後執行的函數
         success: function (data) {
         	
@@ -616,7 +616,7 @@ function ajaxreq (){
        	 
        	 $.ajax({
                 url: $(this).attr("href"),                        // url位置
-                type: 'post',                   // post/get
+                type: 'get',                   // post/get
                 error: function (xhr) { $("#MyPostedOrdersPage").html('請求失敗，請重新整理'); },      // 錯誤後執行的函數
                 success: function (data) { ajaxreq ();
                 
@@ -638,7 +638,7 @@ function ajaxreq (){
        	 
        	 $.ajax({
                 url: $(this).attr("href"),                        // url位置
-                type: 'post',                   // post/get
+                type: 'get',                   // post/get
                 error: function (xhr) { $("#MyPostedOrdersPage").html('請求失敗，請重新整理'); },      // 錯誤後執行的函數
                 success: function (data) { ajaxreq ();
                 

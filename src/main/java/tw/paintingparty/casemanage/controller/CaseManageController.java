@@ -89,7 +89,7 @@ public class CaseManageController {
 	}
 	
 
-	@PostMapping(path = "/backend/mypostedallcases2/{sort}/{condition}/{nowpage}") //AJAX請求處理，回應JSON，加上條件和排序
+	@GetMapping(path = "/backend/mypostedallcases2/{sort}/{condition}/{nowpage}") //AJAX請求處理，回應JSON，加上條件和排序
 	@ResponseBody
 	public List<MyPostedAllCasesBean> MyPostedAllCasesData(@PathVariable("sort") Integer sort ,@PathVariable("condition") Integer condition , @PathVariable("nowpage") Integer nowpage ,HttpServletRequest request ) throws ParseException {
 		//	var myposted_sort = 1; //0=由舊到新、1=由新到舊 預設1
@@ -106,7 +106,7 @@ public class CaseManageController {
 	
 	
 	
-	@PostMapping(path = "/backend/casebackstage/{case_id}") //按下案件管理
+	@GetMapping(path = "/backend/casebackstage/{case_id}") //按下案件管理
 	@ResponseBody
 	public List<CaseBackStageBean> CaseBackStage(@PathVariable("case_id") Integer caseid ) {
 //		System.out.println("接收成功!");
@@ -121,7 +121,7 @@ public class CaseManageController {
 
 	
 
-	@PostMapping(path = "/backend/hire/{case_id}/{bmember_id}/{price_expected}") //錄取畫師
+	@GetMapping(path = "/backend/hire/{case_id}/{bmember_id}/{price_expected}") //錄取畫師
 	@ResponseBody
 	public String Hire( @PathVariable("case_id") Integer caseid , @PathVariable("bmember_id") Integer bmemberid , @PathVariable("price_expected") Integer expected  ) {
 //		System.out.println("接收成功!");
@@ -135,7 +135,7 @@ public class CaseManageController {
 		
 	}
 	
-	@PostMapping(path = "/backend/offthiscase/{offcase_id}") //錄取畫師
+	@GetMapping(path = "/backend/offthiscase/{offcase_id}") //錄取畫師
 	@ResponseBody
 	public void OffThisCase( @PathVariable("offcase_id") Integer offcaseid  ) {
 //		System.out.println("接收成功!");
@@ -159,7 +159,7 @@ public class CaseManageController {
 	
 	
 	
-	@PostMapping(path = "/backend/mypostedorders2/{sort}/{condition}/{nowpage}") 
+	@GetMapping(path = "/backend/mypostedorders2/{sort}/{condition}/{nowpage}") 
 	@ResponseBody
 	public List<MyPostedOrdersBean> MyPostedOrdersData( @PathVariable("sort") Integer sort ,@PathVariable("condition") Integer condition , @PathVariable("nowpage") Integer nowpage , HttpServletRequest request ) throws ParseException {
 		
@@ -170,7 +170,7 @@ public class CaseManageController {
 	}
 	
 	
-	@PostMapping(path = "/backend/passthestage/{orderid}") //過稿
+	@GetMapping(path = "/backend/passthestage/{orderid}") //過稿
 	public String PassTheStage(@PathVariable("orderid") String orderid  ) {
 		
 		int orderInt = Integer.parseInt(orderid);
@@ -186,7 +186,7 @@ public class CaseManageController {
 	
 	
 	
-	@PostMapping(path = "/backend/cancelorder/{orderid}") //終止交易
+	@GetMapping(path = "/backend/cancelorder/{orderid}") //終止交易
 	public String CancelOrder(@PathVariable("orderid") String orderid ) {
 		
 		int orderInt = Integer.parseInt(orderid);
@@ -236,7 +236,7 @@ public class CaseManageController {
 	
 	
 	
-	@PostMapping(path = "/backend/myappliedallcases2/{sort}/{nowpage}") 
+	@GetMapping(path = "/backend/myappliedallcases2/{sort}/{nowpage}") 
 	@ResponseBody
 	public List<MyAppliedAllCasesBean> MyAppliedAllCasesData(@PathVariable("sort") Integer sort , @PathVariable("nowpage") Integer nowpage , HttpServletRequest request ) throws ParseException {
 		
@@ -264,7 +264,7 @@ public class CaseManageController {
 	
 
 	
-	@PostMapping(path = "/backend/myappliedorders2/{sort}/{condition}/{nowpage}") //代做
+	@GetMapping(path = "/backend/myappliedorders2/{sort}/{condition}/{nowpage}") //代做
 	@ResponseBody
 	public List<MyAppliedOrdersBean> MyAppliedOrdersData( @PathVariable("sort") Integer sort ,@PathVariable("condition") Integer condition , @PathVariable("nowpage") Integer nowpage , HttpServletRequest request ) throws ParseException {
 		

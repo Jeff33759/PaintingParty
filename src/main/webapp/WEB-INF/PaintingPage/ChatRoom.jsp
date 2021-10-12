@@ -113,7 +113,7 @@
     function ajaxreq_chat_conn (){
  
     	
-    	console.log(321);
+    	//console.log(321);
     	//-------以下WS用 參數設置
     	var host = window.location.host;
 		//var host2 = document.domain; //不包括PORT，假設localhost:8080，那就會只拿到localhost
