@@ -18,10 +18,11 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 
 //相當於設定beans.config.xml
-@Configuration
-@EnableWebMvc
-@ComponentScan(basePackages = "tw.paintingparty")
-@EnableTransactionManagement
+//大的通訊錄，給大家用的程式，都放在這裡。
+@Configuration //告訴春天，我是組態設定黨
+@EnableWebMvc  //自動註冊ＷＥＢ　ＭＶＣ所支援的＠，P35
+@ComponentScan(basePackages = "tw.paintingparty") //自動註冊此包內的@SERVICE或COMPONENT等等...
+@EnableTransactionManagement // 啟動交易管理，相當於<tx:annotation-driven>標籤
 public class RootAppConfig {
 	@Bean
 	public DataSource datasource() throws IllegalArgumentException, NamingException {
@@ -43,9 +44,13 @@ public class RootAppConfig {
 
 	private Properties addProperties() {
 		Properties p1 = new Properties();
+		//設定方言，我們使用MS SQL
 		p1.put("hibernate.dialect", org.hibernate.dialect.SQLServerDialect.class);
+		//要秀出SQL語句嗎，選要
 		p1.put("hibernate.show_sql", Boolean.TRUE);
+		//把顯示的SQL排版，方便觀看
 		p1.put("hibernate.format_sql", Boolean.TRUE);
+		//不加這個，查詢會出錯。
 		p1.put("hibernate.allow_update_outside_transaction", Boolean.TRUE);
 		return p1;
 	}

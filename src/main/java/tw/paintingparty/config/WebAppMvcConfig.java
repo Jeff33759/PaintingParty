@@ -23,12 +23,14 @@ import tw.paintingparty.model.Member;
 import tw.paintingparty.util.BackendInterceptor;
 
 //相當於設定mvc-servlet.xml
-@Configuration
-@EnableWebMvc
-@ComponentScan(basePackages = {"tw.paintingparty"})
+//此為frontController，可想成小的通訊錄
+@Configuration //告訴春天，我是組態設定黨
+@EnableWebMvc //自動註冊ＷＥＢ　ＭＶＣ所支援的＠，P35
+@ComponentScan(basePackages = {"tw.paintingparty"}) //此CONTROLLER掃描的包，自動註冊此包內的@SERVICE或COMPONENT等等...
 public class WebAppMvcConfig implements WebMvcConfigurer {
+	//實作WebMvcConfigurer，來設定組態設定檔，可以更改MVC的架構，例如設定攔截器等等。P36。
 
-	@Override
+	@Override //啟用功能，默認的
 	public void configureDefaultServletHandling(DefaultServletHandlerConfigurer configurer) {
 		configurer.enable();
 	}
